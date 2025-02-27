@@ -214,7 +214,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              A passionate Python/Django developer with hands-on experience in building scalable web applications and integrating AI solutions into projects. I love working on innovative applications, including real-time chat systems, SaaS platforms, and intelligent learning solutions.
+              I'm a passionate Python/Django developer with hands-on experience in building scalable web applications and integrating AI solutions into projects. I love working on innovative applications, including real-time chat systems, SaaS platforms, and intelligent learning solutions.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
