@@ -262,7 +262,7 @@ const Komentar = () => {
                     <MessageCircle className="w-6 h-6 text-indigo-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-white">
-                    Comments <span className="text-indigo-400">({comments.length})</span>
+                    Drop your comments or Feedbacks <span className="text-indigo-400">({comments.length})</span>
                 </h3>
             </div>
         </div>
