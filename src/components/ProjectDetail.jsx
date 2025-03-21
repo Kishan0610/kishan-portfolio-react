@@ -47,9 +47,46 @@ const FeatureItem = ({ feature }) => {
   );
 };
 
+
+const MoreScreenshots = ({ screenshots }) => {
+  return (
+    <div className="mt-16 space-y-6 md:space-y-10">
+      <h3 className="text-xl md:text-2xl font-semibold text-white/90 flex items-center gap-3">
+        <Star className="w-5 h-5 text-yellow-400" />
+        More Screenshots 
+      </h3>
+      {screenshots && screenshots.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {screenshots.map((screenshot, index) => (
+            <div
+              key={index}
+              className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
+            >
+              <img
+                src={screenshot}
+                alt={`Screenshot ${index + 1}`}
+                className="w-full h-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+                onError={(e) => {
+                  e.target.src = "https://via.placeholder.com/400x200?text=Image+Not+Found"; // Fallback image
+                }}
+              />
+              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl" />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-400 opacity-50">No additional screenshots available.</p>
+      )}
+    </div>
+  );
+};
+
+
+
 const ProjectStats = ({ project }) => {
   const techStackCount = project?.TechStack?.length || 0;
   const featuresCount = project?.Features?.length || 0;
+  const screenshotCount = project?.MoreScreenshots?.length || 0;
 
   return (
     <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 md:p-4 bg-[#0a0a1a] rounded-xl overflow-hidden relative">
@@ -83,8 +120,8 @@ const handleGithubClick = (githubLink) => {
     Swal.fire({
       icon: 'info',
       title: 'Source Code Private',
-      text: 'Maaf, source code untuk proyek ini bersifat privat.',
-      confirmButtonText: 'Mengerti',
+      text: 'Sorry, the source code for this project is private.',
+      confirmButtonText: 'Understood',
       confirmButtonColor: '#3085d6',
       background: '#030014',
       color: '#ffffff'
@@ -98,7 +135,7 @@ const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [project, setProject] = useState(null);
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -110,7 +147,8 @@ const ProjectDetails = () => {
         ...selectedProject,
         Features: selectedProject.Features || [],
         TechStack: selectedProject.TechStack || [],
-        Github: selectedProject.Github || 'https://github.com/EkiZR',
+        Github: selectedProject.Github || 'https://github.com/Kishan0610/',
+        MoreScreenshots: selectedProject.MoreScreenshots || [], 
       };
       setProject(enhancedProject);
     }
@@ -129,7 +167,7 @@ const ProjectDetails = () => {
 
   return (
     <div className="min-h-screen bg-[#030014] px-[2%] sm:px-0 relative overflow-hidden">
-      {/* Background animations remain unchanged */}
+      {/* Background animations */}
       <div className="fixed inset-0">
         <div className="absolute -inset-[10px] opacity-20">
           <div className="absolute top-0 -left-4 w-72 md:w-96 h-72 md:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
@@ -141,6 +179,7 @@ const ProjectDetails = () => {
 
       <div className="relative">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-16">
+          {/* Back button and breadcrumbs */}
           <div className="flex items-center space-x-2 md:space-x-4 mb-8 md:mb-12 animate-fadeIn">
             <button
               onClick={() => navigate(-1)}
@@ -156,7 +195,9 @@ const ProjectDetails = () => {
             </div>
           </div>
 
+          {/* Main content grid */}
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16">
+            {/* Left column */}
             <div className="space-y-6 md:space-y-10 animate-slideInLeft">
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
@@ -177,7 +218,6 @@ const ProjectDetails = () => {
               <ProjectStats project={project} />
 
               <div className="flex flex-wrap gap-3 md:gap-4">
-                {/* Action buttons */}
                 <a
                   href={project.Link}
                   target="_blank"
@@ -219,20 +259,19 @@ const ProjectDetails = () => {
               </div>
             </div>
 
+            {/* Right column */}
             <div className="space-y-6 md:space-y-10 animate-slideInRight">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-              
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
                   src={project.Img}
                   alt={project.Title}
-                  className="w-full  object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
+                  className="w-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
                   onLoad={() => setIsImageLoaded(true)}
                 />
                 <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl" />
               </div>
 
-              {/* Fitur Utama */}
               <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover:border-white/20 transition-colors duration-300 group">
                 <h3 className="text-xl font-semibold text-white/90 flex items-center gap-3">
                   <Star className="w-5 h-5 text-yellow-400 group-hover:rotate-[20deg] transition-transform duration-300" />
@@ -250,10 +289,14 @@ const ProjectDetails = () => {
               </div>
             </div>
           </div>
+
+          {/* More Screenshots Section */}
+          <MoreScreenshots screenshots={project.MoreScreenshots} />
+
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx="true">{`
         @keyframes blob {
           0% {
             transform: translate(0px, 0px) scale(1);
