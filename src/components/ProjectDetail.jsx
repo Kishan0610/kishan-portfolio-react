@@ -6,6 +6,18 @@ import {
 } from "lucide-react";
 import Swal from 'sweetalert2';
 
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/zoom";
+import "swiper/css/thumbs";
+import "swiper/css/free-mode";
+
 const TECH_ICONS = {
   React: Globe,
   Tailwind: Layout,
@@ -49,31 +61,155 @@ const FeatureItem = ({ feature }) => {
 
 
 const MoreScreenshots = ({ screenshots }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const [selectedImage, setSelectedImage] = useState(""); // State to store the selected image URL
+
+  // Function to open the modal and set the selected image
+  const openModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage("");
+  };
+
   return (
     <div className="mt-16 space-y-6 md:space-y-10">
       <h3 className="text-xl md:text-2xl font-semibold text-white/90 flex items-center gap-3">
         <Star className="w-5 h-5 text-yellow-400" />
-        More Screenshots 
+        More Screenshots
       </h3>
       {screenshots && screenshots.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {screenshots.map((screenshot, index) => (
-            <div
-              key={index}
-              className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
-            >
-              <img
-                src={screenshot}
-                alt={`Screenshot ${index + 1}`}
-                className="w-full h-full object-cover transform transition-transform duration-700 will-change-transform group-hover:scale-105"
-                onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/400x200?text=Image+Not+Found"; // Fallback image
-                }}
-              />
-              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/10 transition-colors duration-300 rounded-2xl" />
+        <>
+          {/* Swiper Carousel */}
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="w-full h-full relative"
+          >
+            {screenshots.map((screenshot, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className="relative rounded-lg overflow-hidden border border-white/10 shadow-sm group cursor-pointer hover:shadow-md transition-shadow duration-300"
+                  onClick={() => openModal(screenshot)} // Open modal on click
+                >
+                  <img
+                    src={screenshot}
+                    alt={`Screenshot ${index + 1}`}
+                    className="w-full h-48 md:h-56 object-cover transform transition-transform duration-300 will-change-transform group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.src = "https://via.placeholder.com/400x200?text=Image+Not+Found"; // Fallback image
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Screenshot {index + 1}
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+
+            {/* Custom Navigation Arrows */}
+            <div className="swiper-button-next !text-white !bg-black/50 !rounded-full !w-8 !h-8 md:!w-10 md:!h-10 !flex !items-center !justify-center hover:!bg-black/70 transition-colors">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 md:h-6 md:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </div>
-          ))}
-        </div>
+            <div className="swiper-button-prev !text-white !bg-black/50 !rounded-full !w-8 !h-8 md:!w-10 md:!h-10 !flex !items-center !justify-center hover:!bg-black/70 transition-colors">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 md:h-6 md:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </div>
+          </Swiper>
+
+          {/* Modal for Image Preview */}
+          {isModalOpen && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+              onClick={closeModal} // Close modal when clicking outside the image
+            >
+              <div
+                className="relative bg-white/10 p-4 rounded-lg max-w-[90vw] max-h-[90vh] w-auto h-auto"
+                onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+              >
+                {/* Close Button */}
+                <button
+                  className="absolute -top-10 right-0 p-2 text-white hover:text-gray-300 transition-colors"
+                  onClick={closeModal}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                {/* Preview Image */}
+                <img
+                  src={selectedImage}
+                  alt="Preview"
+                  className="w-full h-full max-w-[80vw] max-h-[80vh] object-contain rounded-lg"
+                  onError={(e) => {
+                    e.target.src = "https://via.placeholder.com/400x200?text=Image+Not+Found"; // Fallback image
+                  }}
+                />
+              </div>
+            </div>
+          )}
+        </>
       ) : (
         <p className="text-gray-400 opacity-50">No additional screenshots available.</p>
       )}
