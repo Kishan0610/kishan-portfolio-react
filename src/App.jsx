@@ -70,7 +70,6 @@ const ProjectPageLayout = () => (
 const BlogPageLayout = () => (
   <>
     <Navbar />
-    <AnimatedBackground />
     <BlogDetail />
     <footer>
       <center>
