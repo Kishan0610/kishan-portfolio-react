@@ -69,7 +69,9 @@ const ProjectPageLayout = () => (
 
 const BlogPageLayout = () => (
   <>
-    <Navbar />
+    <div className="mt-5 ms-4 text-2xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent">
+        Ravikishan Gupta
+    </div>
     <BlogDetail />
     <footer>
       <center>
