@@ -51,7 +51,7 @@ const ProfileImage = memo(() => (
           
           <img
             src="/Photo.png"
-            alt="Profile"
+            alt="Ravikishan Gupta - Full Stack Developer"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
             loading="lazy"
           />
@@ -220,6 +220,7 @@ const AboutPage = () => {
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a href="https://drive.google.com/file/d/1LlzV2fvk4jS7dBkIfSMLceEb0kADDOqS/view?usp=drive_link" className="w-full lg:w-auto">
               <button 
+                aria-label="Download CV"
                 data-aos="fade-up"
                 data-aos-duration="800"
                 className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
