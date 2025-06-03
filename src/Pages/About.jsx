@@ -118,7 +118,7 @@ const AboutPage = () => {
     const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
     const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
     
-    const startDate = new Date("2024-01-06");
+    const startDate = new Date("2025-01-06");
     const today = new Date();
     const experience = today.getFullYear() - startDate.getFullYear() -
       (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
@@ -126,7 +126,7 @@ const AboutPage = () => {
     return {
       totalProjects: storedProjects.length,
       totalCertificates: storedCertificates.length,
-      YearExperience: experience
+      YearExperience: experience === 0 ? 1 : experience
     };
   }, []);
 
@@ -177,7 +177,7 @@ const AboutPage = () => {
       color: "from-[#6366f1] to-[#a855f7]",
       value: YearExperience,
       label: "Years of Experience",
-      description: "Continuous learning journey",
+      description: YearExperience === 1 ? "Starting my professional journey" : "Continuous learning journey",
       animation: "fade-left",
     },
   ], [totalProjects, totalCertificates, YearExperience]);
