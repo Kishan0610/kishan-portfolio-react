@@ -41,7 +41,7 @@ const AnimatedBackground = () => {
 			window.removeEventListener("scroll", handleScroll)
 			cancelAnimationFrame(requestId)
 		}
-	}, [])
+	}, [])	
 
 	return (
 		<div className="fixed inset-0 ">

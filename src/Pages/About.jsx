@@ -218,7 +218,7 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/file/d/1xtZC2xbevwTkM2jfT4JwF6Gip0tBaEq8/view?usp=drive_link" className="w-full lg:w-auto">
+              <a href="https://drive.google.com/file/d/1Mhh_ADNErSWuVccxN5f67f81GE8f5WxN/view?usp=sharing" className="w-full lg:w-auto">
               <button 
                 aria-label="Download CV"
                 data-aos="fade-up"
