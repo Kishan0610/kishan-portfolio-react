@@ -1,4 +1,4 @@
-# Portfolio V5   
+# Portfolio  
 
 **Tech Stack used:**  
 - ReactJS  
