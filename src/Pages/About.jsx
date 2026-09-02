@@ -214,11 +214,11 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              A passionate Full Stack developer with strong knowledge in Django, React and backend development. Although I am a fresher, I have gained practical experience by building multiple academic and personal projects, including a Chat Application, Ecommerce Application and a Learning Management System. I am confident in my problem-solving skills, eager to learn new technologies, and excited to contribute to meaningful projects while continuously growing as a developer.
+              A Python/Django Developer at Mobitrail, where I build and maintain AppInsights, an application portfolio and security management platform used by ICICI Securities — spanning backend architecture, REST APIs, MSSQL, and responsive front-ends. Alongside my day-to-day work, I independently design and ship full-stack SaaS products end to end, from database schema to deployment. I enjoy solving backend problems, iterating quickly, and continuously picking up new tools as projects demand them.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/file/d/1oQbHIJ1rbPFMm9wgc7Km7AJofyi9lMxu/view?usp=drive_link" className="w-full lg:w-auto">
+              <a href="https://drive.google.com/file/d/1Tcuz8E-ojCs5T0HyBUkJzRrnr0Wbjh_h/view?usp=drivesdk" className="w-full lg:w-auto">
               <button 
                 aria-label="Download CV"
                 data-aos="fade-up"
