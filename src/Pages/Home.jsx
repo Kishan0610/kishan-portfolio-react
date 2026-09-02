@@ -12,7 +12,7 @@ const StatusBadge = memo(() => (
         <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 mt-16">
           <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
             <Sparkles className="sm:w-4 sm:h-4 w-3 h-3 mr-2 text-blue-400" />
-            Ready to Build & Innovate
+            Python/Django Developer @ Mobitrail
           </span>
         </div>
       </div>
@@ -23,24 +23,23 @@ const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
     <h1 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
       <span className="relative inline-block">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Aspiring
+          Python & Django
         </span>
       </span>
       <br/>
       <span className="relative inline-block mt-2">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-          Full Stack Developer
+          Developer
         </span>
         <br />
         <span className="text-2xl font-light relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          with strong foundation in
+          building enterprise apps at
         </span>
         <br />
         <span className="font-light relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-          Python and Django
+          Mobitrail
         </span>
       </span>
     </h1>
@@ -85,8 +84,8 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Masters in Computer Applications", "Tech Enthusiast"];
-const TECH_STACK = ["Python", "Django", "React", "Javascript", "Tailwind", "AJAX"];
+const WORDS = ["Python/Django Developer at Mobitrail", "Masters in Computer Applications"];
+const TECH_STACK = ["Python", "Django", "MSSQL", "REST APIs", "React", "Bootstrap 5", "jQuery"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Kishan0610" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/ravikishan-gupta-6086a1232/" },
@@ -191,7 +190,7 @@ const Home = () => {
                 <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                   data-aos="fade-up"
                   data-aos-delay="1000">
-                  Passionate about crafting robust and scalable web solutions using Python, Django, and modern front-end frameworks.
+                  I build and maintain enterprise Django applications used by ICICI Securities, along with independent SaaS products, working across REST APIs, MSSQL, and responsive front-ends.
                 </p>
 
                 {/* Tech Stack */}

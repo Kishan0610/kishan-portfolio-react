@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import "./index.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
+import Experience from "./components/Experience";
 import AnimatedBackground from "./components/Background";
 import Navbar from "./components/Navbar";
 import Portofolio from "./Pages/Portofolio";
@@ -28,6 +29,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <AnimatedBackground />
           <Home />
           <About />
+          <Experience />
           <Portofolio />
           <ContactPage />
           <BlogPage />
@@ -35,7 +37,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
             <center>
               <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
               <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-                © 2025{" "}
+                © {new Date().getFullYear()}{" "}
                 <a href="https://flowbite.com/" className="hover:underline">
                   Ravikishan™
                 </a>
@@ -56,7 +58,7 @@ const ProjectPageLayout = () => (
       <center>
         <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
         <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-          © 2025{" "}
+          © {new Date().getFullYear()}{" "}
           <a href="https://flowbite.com/" className="hover:underline">
             Ravikishan™
           </a>
@@ -77,7 +79,7 @@ const BlogPageLayout = () => (
       <center>
         <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
         <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-          © 2025{" "}
+          © {new Date().getFullYear()}{" "}
           <a href="https://flowbite.com/" className="hover:underline">
             Ravikishan™
           </a>
