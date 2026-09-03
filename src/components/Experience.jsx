@@ -11,10 +11,10 @@ const EXPERIENCE = [
     period: "Jan 2026 — Present",
     current: true,
     points: [
-      "Build and maintain AppInsights, an application portfolio and security management platform for ICICI Securities.",
+      "Build and maintain AppInsights 360, Mobitrail's in-house application portfolio and security management platform, including a connector integration framework (Jira, ServiceNow, GitHub, Dynatrace, and more).",
       "Shipped an Observability Agent system: downloadable monitoring agents, per-download API keys, and live agent status tracking.",
       "Built a CMDB infrastructure synchronization pipeline from scratch, including scheduling, batch tracking, and data normalization.",
-      "Led a UI redesign across the platform's tab pages and built onboarding & connector integration flows (Jira, ServiceNow, GitHub, Dynatrace, and more).",
+      "Led a UI redesign across the platform's tab pages and built the onboarding workflow.",
     ],
   },
   {
